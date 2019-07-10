@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Agnes-wzs</title>
+  <title>虚拟路径与虚拟主机的配置 | Agnes-wzs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Agnes-wzs">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="虚拟路径：将web项目配置到webapps以外的目录虚拟主机：Tomcat服务器，允许用户在同一台计算机上，配置多个Web站点，在这种情况下，需要为每个Web站点，配置不同的主机名，即配置虚拟主机">
+<meta name="keywords" content="Tomact,虚拟路径与虚拟主机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟路径与虚拟主机的配置">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/虚拟路径与虚拟主机的配置/index.html">
 <meta property="og:site_name" content="Agnes-wzs">
+<meta property="og:description" content="虚拟路径：将web项目配置到webapps以外的目录虚拟主机：Tomcat服务器，允许用户在同一台计算机上，配置多个Web站点，在这种情况下，需要为每个Web站点，配置不同的主机名，即配置虚拟主机">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/07/10/虚拟路径与虚拟主机的配置/2019-07-10_190648.png">
+<meta property="og:updated_time" content="2019-07-10T11:13:10.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Agnes-wzs">
+<meta name="twitter:title" content="虚拟路径与虚拟主机的配置">
+<meta name="twitter:description" content="虚拟路径：将web项目配置到webapps以外的目录虚拟主机：Tomcat服务器，允许用户在同一台计算机上，配置多个Web站点，在这种情况下，需要为每个Web站点，配置不同的主机名，即配置虚拟主机">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/10/虚拟路径与虚拟主机的配置/2019-07-10_190648.png">
   
     <link rel="alternative" href="/atom.xml" title="Agnes-wzs" type="application/atom+xml">
   
@@ -146,36 +153,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-虚拟路径与虚拟主机的配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/10/虚拟路径与虚拟主机的配置/" class="archive-article-date">
-  	<time datetime="2019-07-10T08:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/10/虚拟路径与虚拟主机的配置/">虚拟路径与虚拟主机的配置</a>
+    <h1 class="article-title" itemprop="name">
+      虚拟路径与虚拟主机的配置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/10/虚拟路径与虚拟主机的配置/" class="archive-article-date">
+  	<time datetime="2019-07-10T08:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虚拟路径：将web项目配置到webapps以外的目录<br>虚拟主机：Tomcat服务器，允许用户在同一台计算机上，配置多个Web站点，在这种情况下，需要为每个Web站点，配置不同的主机名，即配置虚拟主机</p>
+<a id="more"></a>
+<h2 id="一-虚拟路径的配置"><a href="#一-虚拟路径的配置" class="headerlink" title="一.虚拟路径的配置"></a>一.虚拟路径的配置</h2><p>方式一：<br>在conf文件夹中server.xml文件中进行配置，找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;host&gt;……&lt;/host&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在host标签中添加<code>&lt;Context docBase=&quot;D:\JspProject&quot; path=&quot;/JspProject&quot; /&gt;</code>（注：path为虚拟路径，docBase为实际路径，path为相对webapps而言）<br>方式二：<br>在conf-&gt;Catalina-&gt;localhost中新建xml文件（名称与项目名相同），写代码<br><code>&lt;Context docBase=:\JspProject&quot; path=&quot;/JspProject&quot; /&gt;</code>  </p>
+<h2 id="二-虚拟主机的配置"><a href="#二-虚拟主机的配置" class="headerlink" title="二.虚拟主机的配置"></a>二.虚拟主机的配置</h2><p>在conf文件夹中server.xml文件中进行配置，找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Engine&gt;……&lt;/Engine&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在Engine标签中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host appBase=&quot;d:\JspProject&quot; name=&quot;www.test.com&quot;&gt;</span><br><span class="line">    &lt;Context docBase=&quot;d:\JspProject&quot; path=&quot;/&quot; /&gt;</span><br><span class="line">&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改默认引擎<code>&lt;Engine defaultHost=&quot;www.text.com&quot;&gt;</code><br>在C盘Windows\System32\drivers\etc\hosts中增加一条<br>127.0.0.1（本机IP地址） <a href="http://www.test.com（虚拟主机）" target="_blank" rel="noopener">www.test.com（虚拟主机）</a><br><img src="/2019/07/10/虚拟路径与虚拟主机的配置/2019-07-10_190648.png" alt="示例图片" title="示例图片"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/1562640319576.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/mm_facetoface_collect_qrcode_1562640296549.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,88 +240,120 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/10/虚拟路径与虚拟主机的配置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-n">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/Tomcat的安装配置与常见问题/" class="archive-article-date">
-  	<time datetime="2019-07-09T14:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/09/Tomcat的安装配置与常见问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tomcat的安装配置与常见问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/Tomcat的安装配置与常见问题/">Tomcat的安装配置与常见问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-虚拟路径的配置"><span class="toc-number">1.</span> <span class="toc-text">一.虚拟路径的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-虚拟主机的配置"><span class="toc-number">2.</span> <span class="toc-text">二.虚拟主机的配置</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-08T00:41:24.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
 
 
           </div>
@@ -304,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
