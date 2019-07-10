@@ -8,15 +8,26 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Tomcat的安装配置与常见问题 | Agnes-wzs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Tomcat,环境配置">
+  <meta name="description" content="Tomcat的安装&amp;amp;&amp;amp;配置&amp;amp;&amp;amp;常见问题">
+<meta name="keywords" content="Tomcat,环境配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat的安装配置与常见问题">
 <meta property="og:url" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/index.html">
 <meta property="og:site_name" content="Agnes-wzs">
+<meta property="og:description" content="Tomcat的安装&amp;amp;&amp;amp;配置&amp;amp;&amp;amp;常见问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-09T23:01:16.461Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_070533.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_071030.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_072109.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_073259.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_074211.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_092837.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_092505.png">
+<meta property="og:updated_time" content="2019-07-10T02:01:16.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat的安装配置与常见问题">
+<meta name="twitter:description" content="Tomcat的安装&amp;amp;&amp;amp;配置&amp;amp;&amp;amp;常见问题">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_070533.png">
   
     <link rel="alternative" href="/atom.xml" title="Agnes-wzs" type="application/atom+xml">
   
@@ -168,7 +179,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Tomcat的安装&amp;&amp;配置&amp;&amp;常见问题  </p>
+<a id="more"></a>
+<h2 id="一-Tomcat的下载安装"><a href="#一-Tomcat的下载安装" class="headerlink" title="一.Tomcat的下载安装"></a>一.Tomcat的下载安装</h2><p>进入tomcat官网<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a>下载，如图所示<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_070533.png" alt="示例图片" title="示例图片"><br>选择左侧Download，选择版本号，以tomcat8为例<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_071030.png" alt="示例图片" title="示例图片"><br>选择zip压缩包，下载解压缩</p>
+<h2 id="二-Tomcat环境配置"><a href="#二-Tomcat环境配置" class="headerlink" title="二.Tomcat环境配置"></a>二.Tomcat环境配置</h2><p>电脑右键–&gt;属性–&gt;高级系统设置–&gt;环境变量<br>1.配置JDK环境变量（略）<br>2.新建系统变量，如图<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_072109.png" alt="示例图片" title="示例图片"><br>变量名设置为CATALINA_HOME，变量值为tomcat的根路径<br>3.编辑Path系统变量，新建添加%CATALINA_HOME%\lib;%CATALINA_HOME%\bin<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_073259.png" alt="示例图片" title="示例图片"><br>4.tomcat启动验证：根路径下的bin文件夹中，startup.bat(不要关闭)<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_074211.png" alt="示例图片" title="示例图片"><br>浏览器中输入<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a>，出现下图则配置正确<br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_092837.png" alt="示例图片" title="示例图片"><br>否则需检查是否环境变量配置错误、端口冲突（Access Error:404 – Not Found）等……  </p>
+<h2 id="三-常见问题解决方案"><a href="#三-常见问题解决方案" class="headerlink" title="三.常见问题解决方案"></a>三.常见问题解决方案</h2><p>1.端口号冲突<br>方案一：中止占用端口号8080的进程<br>（1）管理员身份运行cmd，输入命令：<code>netstat -ano | findstr &quot;8080&quot;</code> 来查看端口被哪个进程所占用(例PID为5712的进程占用了8080端口）<br>（2）输入命令<code>tasklist | findstr &quot;5712&quot;</code>来查看进程号为5712所对应的进程<br>（3）结束该进程<code>taskkill /f /t /im ApplicationWebServer.exe</code><br><img src="/2019/07/09/Tomcat的安装配置与常见问题/2019-07-10_092505.png" alt="示例图片" title="示例图片"><br>方案二：修改端口号<br>根路径下conf文件夹中的server.xml中找到Connector标签，修改里面的port值  </p>
+<pre><code>&lt;Connector connectionTimeout=&quot;20000&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot;/&gt;</code></pre><p> 2.startup.bat出现乱码<br> 参考<a href="https://blog.csdn.net/weixin_43244698/article/details/85304535" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43244698/article/details/85304535</a>  </p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>[Windows中查看8080端口的占用情况并关闭相关进程] : <a href="https://blog.csdn.net/qiushisoftware/article/details/81203112" target="_blank" rel="noopener">https://blog.csdn.net/qiushisoftware/article/details/81203112</a><br>[Tomcat服务器下载、安装、配置环境变量教程(超详细)] : <a href="https://blog.csdn.net/qq_40881680/article/details/83582484#Tomcat%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">https://blog.csdn.net/qq_40881680/article/details/83582484#Tomcat%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%95%99%E7%A8%8B</a><br>[Tomcat的startup.bat启动后显示乱码] : <a href="https://blog.csdn.net/weixin_43244698/article/details/85304535" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43244698/article/details/85304535</a><br>[JavaWeb视频教程] ： <a href="https://www.bilibili.com/video/av29086718" target="_blank" rel="noopener">https://www.bilibili.com/video/av29086718</a></p>
+
       
 
       
@@ -315,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-Tomcat的下载安装"><span class="toc-number">1.</span> <span class="toc-text">一.Tomcat的下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-Tomcat环境配置"><span class="toc-number">2.</span> <span class="toc-text">二.Tomcat环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-常见问题解决方案"><span class="toc-number">3.</span> <span class="toc-text">三.常见问题解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">3.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
