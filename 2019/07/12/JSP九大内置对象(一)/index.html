@@ -17,7 +17,7 @@
 <meta property="og:description" content="jsp内置对象是指可以不加声明和创建就可以在JSP页面脚本(Java程序片和Java表达式)中使用的成员变量。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/12/JSP九大内置对象(一)/16222446_E1DE.jpg">
-<meta property="og:updated_time" content="2019-07-13T08:09:43.578Z">
+<meta property="og:updated_time" content="2019-07-14T08:30:35.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP九大内置对象(一)">
 <meta name="twitter:description" content="jsp内置对象是指可以不加声明和创建就可以在JSP页面脚本(Java程序片和Java表达式)中使用的成员变量。">
@@ -254,6 +254,12 @@
 <li>void setCharacterEncoding(“UTF-8”) //设置post方式的请求编码(tomcat7以前默认为ISO-8859-1,tomcat8以后默认为UTF-8)</li>
 <li>getRequestDispatcher(“b.jsp”).forward(request,response)   //请求转发的方式跳转页面,从a跳转到b</li>
 <li>getServerContext()    //获取项目的ServletContext对象</li>
+</ul>
+<p>3.response<br>响应对象,封装了所有响应信息并将服务器端资源数据输出到浏览器<br>常用方法:</p>
+<ul>
+<li>void addCookie(Cookie cookie)    //服务端向客户端增加cookie对象</li>
+<li>void sendRedirect(String location) throws IOException    //页面跳转的一种方式，重定向</li>
+<li>void setContetType(String type)   //设置服务端响应的编码</li>
 </ul>
 
       
@@ -521,11 +527,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Get Post</a>
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color4">Get</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +543,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟路径与虚拟主机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境配置</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟路径与虚拟主机</a>
+                <a href="javascript:void(0)" class="js-tag color3">request</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">response</a>
               </li>
             
             <div class="clearfix"></div>
